@@ -1,8 +1,12 @@
-# Moments
+# MomentsPreview
+
+This is a modified version of [Thomas Hourdel](https://github.com/Chman)'s **Moments** GIF Recorder for Unity.
 
 **Moments** is a quick GIF replay recorder for Unity3D. It automatically records the last few seconds of gameplay and lets you save to a GIF file on demand, like the game [TowerFall Ascension](http://www.towerfall-game.com/) does.
 
-Tested with Unity 4.6. The demo requires Unity 5+ (Personal or Pro).
+**MomentsPreview** adds code to allow you to copy the queue of RenderTextures that **Moments** uses to buffer and generate its GIFS, as well as all necessary playback information. You can then use this set of RenderTextures to display a preview of the GIF by cycling through the RenderTextures on a RawImage UI element.
+
+Tested with Unity 5.4.
 
 ## Instructions
 
