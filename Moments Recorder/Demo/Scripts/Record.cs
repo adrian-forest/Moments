@@ -9,6 +9,8 @@ public class Record : MonoBehaviour
 	string m_LastFile = "";
 	bool m_IsSaving = false;
 
+    private CapturedReplay latestReplay;
+
 	void Start()
 	{
 		// Get our Recorder instance (there can be only one per camera).
@@ -68,10 +70,11 @@ public class Record : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			// Compress & save the buffered frames to a gif file. We should check the State
-			// of the Recorder before saving, but for the sake of this example we won't, so
-			// you'll see a warning in the console if you try saving while the Recorder is
-			// processing another gif.
+            // Compress & save the buffered frames to a gif file. We should check the State
+            // of the Recorder before saving, but for the sake of this example we won't, so
+            // you'll see a warning in the console if you try saving while the Recorder is
+            // processing another gif.
+            latestReplay = m_Recorder.GetReplay();
 			m_Recorder.Save();
 			m_Progress = 0f;
 		}
@@ -96,4 +99,9 @@ public class Record : MonoBehaviour
 			GUILayout.EndVertical();
 		GUILayout.EndHorizontal();
 	}
+
+    public CapturedReplay GetReplay()
+    {
+        return latestReplay;
+    }
 }
